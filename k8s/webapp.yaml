@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: currency-converter
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: myapp
+      app: currency-converter
   template:
     metadata:
       labels:
-        app: myapp
+        app: mcurrency-converter
     spec:
       imagePullSecrets:
         - name: cloudsmith-secret
       containers:
-        - name: myapp
-          image: docker.cloudsmith.io/mukesh/converterapp/myapp:${VERSION_TAG}
+        - name: currency-converter
+          image: docker.cloudsmith.io/mukesh/converterapp/currency-converter:${VERSION_TAG}
           ports:
             - containerPort: 3000
           resources:
