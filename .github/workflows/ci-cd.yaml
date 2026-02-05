@@ -44,10 +44,10 @@ jobs:
 
       - name: Commit updated manifest back to GitHub (if changed)
         run: |
-          git config --global user.email "ci-bot@example.com"
-          git config --global user.name "ci-bot"
+          git config --global user.email "mukeshkumarkorrapati@example.com"
+          git config --global user.name "mukeshkumarkorrapati"
 
-          git add k8s-manifests/deployment.yaml
+          git add k8s/webapp.yaml
 
           if git diff --cached --quiet; then
             echo "No changes to commit — skipping."
