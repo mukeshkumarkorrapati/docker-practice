@@ -16,7 +16,7 @@ spec:
         - name: cloudsmith-secret
       containers:
         - name: currency-converter
-          image: docker.cloudsmith.io/mukesh/converterapp/currency-converter:${VERSION_TAG}
+          image: docker.cloudsmith.io/mukesh/converterapp/currency-converter:PLACEHOLDER_TAG
           ports:
             - containerPort: 3000
           resources:
