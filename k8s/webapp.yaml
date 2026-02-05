@@ -16,7 +16,7 @@ spec:
         - name: cloudsmith-secret
       containers:
         - name: myapp
-          image: docker.cloudsmith.io/my-org/my-docker-repo/myapp:${VERSION_TAG}
+          image: docker.cloudsmith.io/mukesh/converterapp/myapp:${VERSION_TAG}
           ports:
             - containerPort: 3000
           resources:
