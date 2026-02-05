@@ -42,10 +42,16 @@ jobs:
           sed -i "s|PLACEHOLDER_TAG|${{ env.IMAGE_TAG }}|" \
           k8s/webapp.yaml
 
-      - name: Commit updated manifest back to GitHub
+      - name: Commit updated manifest back to GitHub (if changed)
         run: |
           git config --global user.email "ci-bot@example.com"
           git config --global user.name "ci-bot"
-          git add k8s/webapp.yaml
-          git commit -m "Update image to ${{ env.IMAGE_TAG }}"
-          git push origin main
+
+          git add k8s-manifests/deployment.yaml
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit — skipping."
+          else
+            git commit -m "Update image to ${{ env.IMAGE_TAG }}"
+            git push origin main
+          fi
